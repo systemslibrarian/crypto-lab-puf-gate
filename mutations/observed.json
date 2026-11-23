@@ -1,0 +1,163 @@
+{
+  "ranAt": "2026-11-23T17:47:10.538Z",
+  "baselineBundle": "f0a85bc7a4531a54ce577efbfe2ff6a6",
+  "restoredBundleMatches": true,
+  "killed": 14,
+  "total": 14,
+  "records": [
+    {
+      "id": "M01",
+      "what": "Φ built from prefix products instead of suffix products (brief D1)",
+      "file": "src/puf/model.ts",
+      "owner": "npx vitest run -t \"all zeros → Δ = −1\\\\.798473\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/puf/model.test.ts > A. Model KAT (LSB-first challenge bits; brief author's Python, reproduced) > all zeros → Δ = −1.798473, response 1; all ones → 2.683968, 0; c_i = i mod 2 → 1.769958, 0"
+    },
+    {
+      "id": "M02",
+      "what": "Φ_k omitted (the constant feature set to 0) (brief D2)",
+      "file": "src/puf/model.ts",
+      "owner": "npx vitest run -t \"all zeros → Δ = −1\\\\.798473\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/puf/model.test.ts > A. Model KAT (LSB-first challenge bits; brief author's Python, reproduced) > all zeros → Δ = −1.798473, response 1; all ones → 2.683968, 0; c_i = i mod 2 → 1.769958, 0"
+    },
+    {
+      "id": "M03",
+      "what": "training and test sets share challenges: the test set is drawn without excluding the training set (brief D3)",
+      "file": "src/attack/trials.ts",
+      "owner": "npx vitest run -t \"check-A device, noise off: 2,000 CRPs\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > C. Learnability (seeded; the page uses crypto.getRandomValues) > check-A device, noise off: 2,000 CRPs give ≥ 95% on 10,000 fresh challenges"
+    },
+    {
+      "id": "M04",
+      "what": "accuracy computed on the training set (brief D4)",
+      "file": "src/attack/trials.ts",
+      "owner": "npx vitest run -t \"accuracy is held-out\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > C. Learnability (seeded; the page uses crypto.getRandomValues) > accuracy is held-out: recomputed here on the test set only, and it differs from the training accuracy at small N"
+    },
+    {
+      "id": "M05",
+      "what": "XOR PUF responses ORed instead of XORed (brief D5)",
+      "file": "src/puf/device.ts",
+      "owner": "npx vitest run -t \"the device XORs its chains\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > XOR arbiter PUFs (seeded; the page shows its runs as observations) > the device XORs its chains' responses"
+    },
+    {
+      "id": "M06",
+      "what": "the attacker given w directly: training starts from the check-A weights (brief D6)",
+      "file": "src/attack/logreg.ts",
+      "owner": "npx vitest run -t \"no attack module imports the device or a weight generator\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > Invariant 1: the attacker sees only (challenge, response) pairs > no attack module imports the device or a weight generator"
+    },
+    {
+      "id": "M07",
+      "what": "negative-claim sentence deleted from the clone fixture (§4.1d bite, assertion 3)",
+      "file": "src/ui/attackPanel.ts",
+      "owner": "npx playwright test --project=claims --retries=0 -g \"the negative claim: the device is genuine and its responses are predicted\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "✘  1 [claims] › e2e/claims.spec.ts:63:3 › displayed claims › the negative claim: the device is genuine and its responses are predicted (6.1s)"
+    },
+    {
+      "id": "M08",
+      "what": "a check inside the fixture broken: the verifier compares the re-query with a fresh set of challenges (§4.1d bite, assertion 2)",
+      "file": "src/ui/attackPanel.ts",
+      "owner": "npx playwright test --project=claims --retries=0 -g \"the negative claim: the device is genuine and its responses are predicted\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "✘  1 [claims] › e2e/claims.spec.ts:63:3 › displayed claims › the negative claim: the device is genuine and its responses are predicted (1.2s)"
+    },
+    {
+      "id": "M09",
+      "what": "changing N no longer retires the clone",
+      "file": "src/ui/attackPanel.ts",
+      "owner": "npx playwright test --project=claims --retries=0 -g \"changing N retires the clone\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "✘  1 [claims] › e2e/claims.spec.ts:108:3 › displayed claims › changing N retires the clone, and the page says it did (6.1s)"
+    },
+    {
+      "id": "M10",
+      "what": "noise applied to nothing: the device ignores its noise setting",
+      "file": "src/puf/device.ts",
+      "owner": "npx vitest run -t \"heavy noise\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > E. Fail-closed > heavy noise: the device disagrees with itself, and the clone is judged against that repeatability, not 100%"
+    },
+    {
+      "id": "M11",
+      "what": "the attack runs on zero CRPs instead of refusing",
+      "file": "src/attack/trials.ts",
+      "owner": "npx vitest run -t \"N = 0: the attack refuses\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > E. Fail-closed > N = 0: the attack refuses"
+    },
+    {
+      "id": "M12",
+      "what": "the majority baseline is not consulted: a constant device is reported as cloned",
+      "file": "src/attack/trials.ts",
+      "owner": "npx vitest run -t \"every response the same\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > E. Fail-closed > every response the same: the result is reported against the majority baseline as matched, not beaten"
+    },
+    {
+      "id": "M13",
+      "what": "the gradient sign flipped: training climbs the log-likelihood the wrong way",
+      "file": "src/attack/logreg.ts",
+      "owner": "npx vitest run -t \"check-A device, noise off: 2,000 CRPs\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "FAIL  src/attack/attack.test.ts > C. Learnability (seeded; the page uses crypto.getRandomValues) > check-A device, noise off: 2,000 CRPs give ≥ 95% on 10,000 fresh challenges"
+    },
+    {
+      "id": "M14",
+      "what": "gate bite: muted text token darkened below 4.5:1",
+      "file": "src/style.css",
+      "owner": "npx playwright test --project=a11y --retries=0 -g \"dark theme$\"",
+      "ownerPassedUnmutated": true,
+      "bundleHashChanged": true,
+      "ownerFailedMutated": true,
+      "result": "KILLED",
+      "evidence": "✘  1 [a11y] › e2e/a11y.spec.ts:25:3 › no WCAG A/AA violations in dark theme (1.9s)"
+    }
+  ]
+}
