@@ -66,7 +66,7 @@ export function renderCollectPanel(root: HTMLElement): void {
         'ul',
         { class: 'plain-list' },
         h('li', {}, h('strong', {}, 'Reliability: '), h('span', { 'data-claim': 'reliability' }, pct(rep)), ' of 1,000 challenges answered the same way twice by this device.'),
-        h('li', {}, h('strong', {}, 'Uniqueness: '), h('span', { 'data-claim': 'uniqueness' }, pct(uni)), ' mean disagreement between this device and 7 freshly simulated ones (ideal: 50%).'),
+        h('li', {}, h('strong', {}, 'Uniqueness: '), h('span', { 'data-claim': 'uniqueness' }, pct(uni)), ' mean disagreement across all 28 pairs of the 8 devices on the same 1,000 challenges (ideal: 50%).'),
       ),
       h('p', { class: 'help' }, 'Neither number says anything about whether the answers can be predicted. That is the next tab.'),
     );

@@ -8,7 +8,7 @@ export type DeviceKind = 'kat' | 'random' | 'flat';
 export const DEVICE_LABELS: Record<DeviceKind, string> = {
   kat: 'Device A — the brief\'s check-A weights (reproducible)',
   random: 'A new random device (Gaussian delays)',
-  flat: 'A pathological device (every response 0)',
+  flat: 'A pathological device (always 0 without noise)',
 };
 
 export const K = 64;

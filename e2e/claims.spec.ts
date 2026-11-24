@@ -131,6 +131,7 @@ test.describe('displayed claims', () => {
     await expect(page.locator('.crp-table tbody tr')).toHaveCount(12);
     await page.locator('#crp-measure').click();
     await expect(page.locator('[data-claim="reliability"]')).toHaveText('100.0%');
+    await expect(page.locator('#crp-measure-out')).toContainText('all 28 pairs of the 8 devices');
   });
 
   test('XOR: the linear learner on a 2-XOR device is named the wrong tool, not evidence of security', async ({ page }) => {

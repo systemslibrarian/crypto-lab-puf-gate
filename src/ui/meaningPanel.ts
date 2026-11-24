@@ -9,7 +9,7 @@ export function renderMeaningPanel(root: HTMLElement): void {
       'PUFs are used in two very different ways, and modeling attacks hit only one of them.',
     ),
     h('h3', {}, 'Key storage: the PUF answers privately'),
-    h('p', {}, 'A chip can derive a secret key from its own PUF at power-up, so the key is never stored in memory. The answers never leave the chip; a fuzzy extractor turns the slightly noisy readings into the same key every time. An attacker with no access to the raw answers has no CRPs to learn from. The ', link('https://systemslibrarian.github.io/crypto-lab-drift-key/', 'Drift Key'), ' lab builds that fuzzy extractor.'),
+    h('p', {}, 'A chip can derive a secret key from its own PUF at power-up, without keeping a persistent copy of the key across restarts. The answers never leave the chip; a fuzzy extractor turns the slightly noisy readings into the same key every time. An attacker with no access to the raw answers has no CRPs to learn from. The ', link('https://systemslibrarian.github.io/crypto-lab-drift-key/', 'Drift Key'), ' lab builds that fuzzy extractor.'),
     h('h3', {}, 'Authentication: the PUF answers in public'),
     h('p', {}, 'A verifier stores CRPs at enrolment and later asks the chip some of them. Every exchange shows an eavesdropper another challenge and its answer — exactly the data a modeling attack needs. Rührmair et al. conclude that such protocols are broken for the PUFs they modelled, because a clone answers future challenges too.'),
     h('h3', {}, 'Not covered here'),

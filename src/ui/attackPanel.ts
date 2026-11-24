@@ -65,9 +65,10 @@ export function renderAttackPanel(root: HTMLElement): void {
     if (rep < 0.99) lead.push(note('info', `Noise: ${compareToRepeatability(r.heldOut, rep)}.`));
     out.append(...lead);
     if (r.verdict === 'baseline-only') {
-      out.append(verdict('alarm', 'The clone matched the majority-class baseline — it did not beat it. Every answer this device gives is the same, so there is nothing to learn and nothing to predict beyond that.'));
+      const comparison = r.heldOut === r.baseline ? 'matched the majority-class baseline' : 'did not clearly outperform the majority-class baseline';
+      out.append(verdict('alarm', `The clone ${comparison}. Compare its held-out accuracy with always predicting the more frequent test response.`));
     } else if (r.verdict === 'not-cloned') {
-      out.append(verdict('pass', `Below the ${pct(SUCCESS_THRESHOLD, 0)} threshold on held-out challenges with ${r.nTrain} CRPs. Not evidence of security: more CRPs would do it.`));
+      out.append(verdict('pass', `Below the ${pct(SUCCESS_THRESHOLD, 0)} threshold on held-out challenges with ${r.nTrain} CRPs. This run establishes neither security nor how many observations a different run would need.`));
     } else if (r.verdict === 'budget') {
       out.append(verdict('pass', 'Not learned within the budget. That is not evidence of security.'));
     } else {
